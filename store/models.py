@@ -20,12 +20,12 @@ class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
 
     # Shipping address, captured at checkout
-    full_name = models.CharField(max_length=200)
-    phone = models.CharField(max_length=20)
-    address_line = models.CharField(max_length=255)
-    city = models.CharField(max_length=100)
-    state = models.CharField(max_length=100)
-    pincode = models.CharField(max_length=20)
+    full_name = models.CharField(max_length=200, blank=True, default='')
+    phone = models.CharField(max_length=20, blank=True, default='')
+    address_line = models.CharField(max_length=500)
+    city = models.CharField(max_length=100, blank=True, default='')
+    state = models.CharField(max_length=100, blank=True, default='')
+    pincode = models.CharField(max_length=20, blank=True, default='')
 
     payment_method = models.CharField(max_length=20, default='COD')
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='placed')

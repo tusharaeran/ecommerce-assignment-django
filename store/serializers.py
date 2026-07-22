@@ -50,10 +50,5 @@ class OrderSerializer(serializers.ModelSerializer):
 
 
 class CheckoutSerializer(serializers.Serializer):
-    full_name = serializers.CharField(max_length=200)
-    phone = serializers.CharField(max_length=20)
-    address_line = serializers.CharField(max_length=255)
-    city = serializers.CharField(max_length=100)
-    state = serializers.CharField(max_length=100)
-    pincode = serializers.CharField(max_length=20)
+    address = serializers.CharField(max_length=500)
     items = OrderItemInputSerializer(many=True)

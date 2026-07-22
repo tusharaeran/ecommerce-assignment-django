@@ -76,12 +76,8 @@ class CheckoutView(APIView):
 
         order = Order.objects.create(
             user=request.user,
-            full_name=data['full_name'],
-            phone=data['phone'],
-            address_line=data['address_line'],
-            city=data['city'],
-            state=data['state'],
-            pincode=data['pincode'],
+            full_name=request.user.username,
+            address_line=data['address'],
             payment_method='COD',
             status='placed',
             total_amount=total,
